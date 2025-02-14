@@ -11,5 +11,8 @@ FEATURE DOIS:
 
 Se lembrar de algo ir anotando
 
+
+Ver como posso subir Back e Front para funcionar após o deploy
+
 -->
 
