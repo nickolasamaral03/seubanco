@@ -289,8 +289,3 @@ useEffect(() => {
 }
 
 export default DefinirOutros
-
-
-// problema em valor restate em definir outros
-
-// contas tá sumindo header

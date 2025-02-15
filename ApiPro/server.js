@@ -23,10 +23,12 @@ app.use(express.json())
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASSWORD
 
+const port = process.env.PORT || 5000;
+
 mongoose
   .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.xhgh1sg.mongodb.net/meubanco?retryWrites=true&w=majority&appName=Cluster0`)
   .then(() => {
-    app.listen(5000, () => {
+    app.listen(port, () => {
       console.log('Conectou com o banco de dados e o servidor está rodando na porta 5000');
     });
   })
@@ -36,7 +38,6 @@ mongoose
 
   app.use("/auth", authRoute)
 
-  // Falha de autenticação com o banco de dados MongoDB
 
   
 

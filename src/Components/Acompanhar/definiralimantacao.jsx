@@ -294,5 +294,3 @@ const DefinirAlimentacao = ({ valuesAlimentacao, atualizarGastosTotaisAlimentaca
 };
 
 export default DefinirAlimentacao;
-
-// abrir mais a tela como em moradia
