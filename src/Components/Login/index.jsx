@@ -236,5 +236,3 @@ const Login = (props) => {
 }
 
 export default Login
-
-// buscar centralizar de uma maneira fixa os elementos e diminuir o espaço entre texto e login

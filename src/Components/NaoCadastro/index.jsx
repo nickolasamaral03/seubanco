@@ -208,5 +208,3 @@ const Cadastro = (props) => {
 }
 
 export default Cadastro
-
-// ajustar tela de mensagem de alerta na parte de cima
