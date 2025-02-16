@@ -148,11 +148,13 @@ const Cadastro = (props) => {
 
     const navigate = useNavigate();
 
+    const API_URL = process.env.REACT_APP_API_URL   
+
     const PegandoValoresCadastrados = async (evento) => {
         evento.preventDefault();
 
         try{
-            const response = await axios.post('http://localhost:5000/auth/register', {
+            const response = await axios.post(`${API_URL}/auth/register`, {
                 nome, 
                 usuario,
                 senha

@@ -174,12 +174,14 @@ const Login = (props) => {
 
 
     const navigate = useNavigate();
+
+    const API_URL = process.env.REACT_APP_API_URL   
  
     const PegandoLogin = async(evento) => {
         evento.preventDefault()
 
         try{
-            const response = await axios.post('http://localhost:5000/auth/login', {
+            const response = await axios.post(`${API_URL}/auth/login`, {
                 usuario,
                 senha
             })
