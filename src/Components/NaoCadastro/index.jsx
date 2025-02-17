@@ -48,7 +48,7 @@ const CadastroDentro = styled.div`
     }
 
     h3{
-        margin-right: 170px;
+        margin-right: 185px;
         color: white;
         margin-top: 28px;
         font-size: 1.3rem;
