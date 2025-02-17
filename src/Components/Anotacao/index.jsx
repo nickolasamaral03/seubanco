@@ -54,10 +54,11 @@ const TodoInicio = styled.div`
 
        h4, h3{
         font-size: 0.85rem;
+        margin-top: 8px;
        }
 
        button{
-        font-size: 0.80rem;
+        font-size: 0.65rem;
        }
 
        p{
