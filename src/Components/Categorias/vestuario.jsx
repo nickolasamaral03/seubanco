@@ -64,6 +64,32 @@ const DentroSaude = styled.div`
         }    
 `;
 
+const Alerta = styled.div`
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    /* margin-top: 3rem; */
+    font-size: 1.2rem;
+    text-align: center;
+    width: 30%;
+
+    @media (max-width: 1024px) {
+        width: 50%; /* Maior em telas menores */
+    }
+
+    @media (max-width: 768px) {
+        width: 35%; /* Ainda maior para melhor visibilidade */
+        font-size: 0.6rem; /* Reduz fonte em telas menores */
+    }
+
+    @media (max-width: 480px) {
+        width: 90%; /* Quase tela toda em celulares */
+        font-size: 0.9rem;
+    }
+`
+
 const Vestuario = (props) => {
     const [vestuario, setVestuario] = useState("");
     const [limiteVestuario, setLimiteVestuario] = useState("");
@@ -91,13 +117,9 @@ const Vestuario = (props) => {
                 <TodaSaude>
                     <DentroSaude>
                     {mensagemSucesso && (
-                        <div 
-                            className="alert alert-success position-absolute top-0 start-50 translate-middle-x" 
-                            role="alert"
-                            style={{ zIndex: 10, width: "30%", marginTop: "3rem" }}
-                        >
-                            {mensagemSucesso}
-                        </div>
+                        <Alerta className="alert alert-success" role="alert">
+                        {mensagemSucesso}
+                        </Alerta>
                     )}
                         <h2>Quanto é o seu gasto com vestuário?</h2>
                         <p>Roupas, Calçados ou Acessórios</p>

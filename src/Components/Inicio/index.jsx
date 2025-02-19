@@ -13,8 +13,9 @@ const TodoInicio = styled.div`
     height: 500px ;
 
     @media (max-width: 768px){
-        width: 380px;
+        width: 390px;
         height: 550px;
+        overflow: hidden;
     }
 `
 

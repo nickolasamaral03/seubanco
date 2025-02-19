@@ -76,7 +76,7 @@ const LoginDentro = styled.div`
 
         h3{
             font-size: 1rem;
-            margin-left: -10px;
+            margin-left: -15px;
         }
     }
 `

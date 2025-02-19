@@ -26,10 +26,12 @@ const TodoInicio = styled.div`
     }
 
     @media (max-width: 768px){
-        height: 520px;
-        width: 380px;
+        height: 100vh;
+        width: 390px;
+        overflow: hidden;
         p{
             font-size: 1rem;
+            margin-top: -5px;
         }
 
         img{

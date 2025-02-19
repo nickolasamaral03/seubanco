@@ -64,6 +64,32 @@ const DentroAlimentacao = styled.div`
         }
 `;
 
+const Alerta = styled.div`
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    /* margin-top: 3rem; */
+    font-size: 1.2rem;
+    text-align: center;
+    width: 30%;
+
+    @media (max-width: 1024px) {
+        width: 50%; /* Maior em telas menores */
+    }
+
+    @media (max-width: 768px) {
+        width: 35%; /* Ainda maior para melhor visibilidade */
+        font-size: 0.6rem; /* Reduz fonte em telas menores */
+    }
+
+    @media (max-width: 480px) {
+        width: 90%; /* Quase tela toda em celulares */
+        font-size: 0.9rem;
+    }
+`
+
 const Alimentacao = (props) => {
     const [alimentacao, setAlimentacao] = useState("");
     const [limiteAlimentacao, setLimiteAlimentacao] = useState("");
@@ -94,14 +120,11 @@ const Alimentacao = (props) => {
             <TodaAlimentacao>
                 <DentroAlimentacao>
                 {mensagemSucesso && (
-                        <div 
-                            className="alert alert-success position-absolute top-0 start-50 translate-middle-x" 
-                            role="alert"
-                            style={{ zIndex: 10, width: "30%", marginTop: "3rem" }}
-                        >
-                            {mensagemSucesso}
-                        </div>
-                    )}                <h2>Quanto é o seu gasto com alimentação?</h2>
+                        <Alerta className="alert alert-success" role="alert">
+                        {mensagemSucesso}
+                        </Alerta>
+                    )}
+                      <h2>Quanto é o seu gasto com alimentação?</h2>
                     <p>Supermercado, Restaurantes, Delivery de Comida, Cafés ou Padarias</p>
                     <input type="number" onChange={(e) => setAlimentacao(e.target.value)} value={alimentacao} required/>
 
