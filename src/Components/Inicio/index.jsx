@@ -164,7 +164,3 @@ const Inicio = () => {
 }
 
 export default Inicio
-
-// Se atentar aos inputs de definirDivida quando ir for para produção
-
-// Aumentar o height dos elementos de monitorar gastos
