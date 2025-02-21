@@ -148,7 +148,6 @@ const Cadastro = (props) => {
 
     const navigate = useNavigate();
 
-    // const API_URL = process.env.REACT_APP_API_URL   
 
     const PegandoValoresCadastrados = async (evento) => {
         evento.preventDefault();
@@ -163,7 +162,7 @@ const Cadastro = (props) => {
             setMensagemSucesso("Cadastro realizado com sucesso!")
 
             setTimeout(() => {
-                navigate('/')
+                navigate('/inicio')
                 setMensagemSucesso("")
             }, 3000)
         } catch(error){

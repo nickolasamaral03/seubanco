@@ -174,9 +174,7 @@ const Login = (props) => {
     const [mensagemErro, setMensagemErro] = useState("")
 
 
-    const navigate = useNavigate();
-
-    // const API_URL = process.env.REACT_APP_API_URL   
+    const navigate = useNavigate();  
  
     const PegandoLogin = async(evento) => {
         evento.preventDefault()
