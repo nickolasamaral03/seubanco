@@ -176,13 +176,13 @@ const Login = (props) => {
 
     const navigate = useNavigate();
 
-    const API_URL = process.env.REACT_APP_API_URL   
+    // const API_URL = process.env.REACT_APP_API_URL   
  
     const PegandoLogin = async(evento) => {
         evento.preventDefault()
 
         try{
-            const response = await axios.post(`${API_URL}/auth/login`, {
+            const response = await axios.post('https://seubanco-production.up.railway.app/auth/login', {
                 usuario,
                 senha
             })
