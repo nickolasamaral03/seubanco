@@ -89,6 +89,17 @@ function App() {
     return OutrosSalva ? JSON.parse(OutrosSalva) : []
   })
 
+  const [dadosRenda, setDadosRenda] = useState(() => {
+    const RendaSalva = localStorage.getItem("dadosRenda")
+    return RendaSalva ? JSON.parse(RendaSalva) : []
+  }
+  )
+
+  useEffect(() => {
+    localStorage.setItem("dadosRenda", JSON.stringify(dadosRenda))
+  }
+  ,[dadosRenda])
+
   useEffect(() => {
     localStorage.setItem("dadosOutros", JSON.stringify(dadosOutros))
   },[dadosOutros])
@@ -129,6 +140,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("dadosEducacao", JSON.stringify(dadosEducacao))
   }, [dadosEducacao])
+
+  const ValorRenda = (rendavalor) => {
+    setDadosRenda(rendavalor.rendaConfirmada)
+  }
 
   const ValoresMoradia = (moradiavalues) => {
       setDadosMoradia(moradiavalues)
@@ -320,7 +335,7 @@ const ValoresOutros = (OutrosValores) => {
           <Route path='/cadastro' element={<Cadastro/>}/>
 
           <Route element={<Layout/>}>
-          <Route path='/inicio' element={<Inicio/>}/>
+          <Route path='/inicio' element={<Inicio PegandoRendadoUsuario={ValorRenda}/>}/>
           <Route path='/acompanhar' element={<InicioAcompanhar valuesOutrosAcom={dadosOutros}/>}/>
           
           <Route path='/moradia' element={<Moradia PegandoValores={ValoresMoradia}/>}/>
@@ -344,7 +359,7 @@ const ValoresOutros = (OutrosValores) => {
           <Route path='/definirsaude' element={<DefinirSaude valuesSaude={dadosSaude} atualizarGastosTotais={atualizarGastosSaude}/>}/>
           <Route path='/definirtransporte' element={<DefinirTransporte valuesTransportes={dadosTransporte} atualizarGastosTotaisTransporte={atualizarGastosTransporte}/>}/>
           <Route path='/definirvestuario' element={<DefinirVestuario valuesVestuario={dadosVestuario} atualizarGastosTotaisVestuario={atualizarGastosVestuario}/>}/>
-          <Route path='/definirtotal' element={<GastoTotal valuesMoradia={dadosMoradia} valuesAlimentacao={dadosAlimentacao} valuesContas={dadosContas} valuesOutros={limitesOutros} valuesDividas={dadosDividas} valuesEducacao={dadosEducacao} valuesLazer={dadosLazer} valuesSaude={dadosSaude} valuesTransportes={dadosTransporte} valuesVestuario={dadosVestuario} valuesTotalSaude={totalSaude} valuesTotalEducacao={totalEducacao} valuesTotalMoradia={totalMoradia} valuesTotalLazer={totalLazer} valuesTotalTransporte={totalTransporte} valeusTotalDivida={totalDivida} valuesTotalVestuario={totalVestuario} valuesTotalAlimentacao={totalAlimentacao} valuesTotalContas={totalContas} valuesTotalOutros={totalOutros}
+          <Route path='/definirtotal' element={<GastoTotal valuesMoradia={dadosMoradia} valuesAlimentacao={dadosAlimentacao} valuesContas={dadosContas} valuesOutros={limitesOutros} valuesDividas={dadosDividas} valuesEducacao={dadosEducacao} valuesLazer={dadosLazer} valuesSaude={dadosSaude} valuesTransportes={dadosTransporte} valuesVestuario={dadosVestuario} valuesTotalSaude={totalSaude} valuesTotalEducacao={totalEducacao} valuesTotalMoradia={totalMoradia} valuesTotalLazer={totalLazer} valuesTotalTransporte={totalTransporte} valeusTotalDivida={totalDivida} valuesTotalVestuario={totalVestuario} valuesTotalAlimentacao={totalAlimentacao} valuesTotalContas={totalContas} valuesTotalOutros={totalOutros} dadosRenda={dadosRenda}
           />}/>
 
           <Route path='/anotacao' element={<Anotacao/>}/>

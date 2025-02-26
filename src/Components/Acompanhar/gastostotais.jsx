@@ -40,6 +40,14 @@ const TodoInicio = styled.div`
         font-size: 1.6rem;
     }
 
+    h5{
+        color: white;
+        margin-top: 90px;
+        font-size: 0.8rem;
+        margin-top: -3px;
+        color: #abd9ab;
+    }
+
     @media (max-width: 768px){
         background: #36602d5e;
         h3, h2{
@@ -53,9 +61,13 @@ const TodoInicio = styled.div`
         p{
             font-size: 0.9rem;
         }
+
+        h5{
+            font-size: 0.7rem;
+        }
     }
 `
-const GastoTotal = ({valuesMoradia, valuesEducacao,valuesSaude, valuesLazer, valuesOutros, valuesTransportes, valuesDividas, valuesVestuario, valuesAlimentacao, valuesContas, valuesTotalSaude, valuesTotalEducacao, valuesTotalMoradia, valuesTotalLazer, valuesTotalTransporte, valeusTotalDivida, valuesTotalVestuario, valuesTotalAlimentacao, valuesTotalContas, valuesTotalOutros }) => {
+const GastoTotal = ({valuesMoradia, valuesEducacao,valuesSaude, valuesLazer, valuesOutros, valuesTransportes, valuesDividas, valuesVestuario, valuesAlimentacao, valuesContas, valuesTotalSaude, valuesTotalEducacao, valuesTotalMoradia, valuesTotalLazer, valuesTotalTransporte, valeusTotalDivida, valuesTotalVestuario, valuesTotalAlimentacao, valuesTotalContas, valuesTotalOutros, dadosRenda }) => {
     const TodosValues = [valuesMoradia.limiteMoradia, valuesEducacao.limiteEducacao,valuesSaude.limiteSaude, valuesLazer.limiteLazer, valuesTransportes.limiteTransporte, valuesDividas.limiteDivida, valuesVestuario.limiteVestuario, valuesAlimentacao.limiteAlimentacao, valuesContas.limiteConta, valuesOutros]
     const TodosGastos = [valuesTotalSaude, valuesTotalEducacao, valuesTotalMoradia, valuesTotalLazer, valuesTotalTransporte, valeusTotalDivida, valuesTotalVestuario, valuesTotalAlimentacao, valuesTotalContas, valuesTotalOutros]
 
@@ -66,9 +78,17 @@ const GastoTotal = ({valuesMoradia, valuesEducacao,valuesSaude, valuesLazer, val
     const calcularGastosTotais = () => {
         return TodosGastos.reduce((total, valor) => total + (parseFloat(valor) || 0), 0);
     }
-    
+
+    console.log(dadosRenda)
+
     const valuesTotal = calcularGastosTotais();
     const totalLimites = calcularLimitesTotais();
+
+    const calcularGastonaRenda = () => {
+        return (parseFloat(dadosRenda) || 0) - (parseFloat(valuesTotal) || 0);
+    };
+
+    const gastonaRenda = calcularGastonaRenda();
 
     const data01 = [
         { name: 'Saúde', value: valuesTotalSaude },
@@ -87,6 +107,8 @@ const GastoTotal = ({valuesMoradia, valuesEducacao,valuesSaude, valuesLazer, val
         <TodoInicio>
             {/* Se der ajustar mais a estilização */}
             <h3>Todos os gastos registrados:</h3>
+            <h5>*Saldo na Renda é a sua renda menos o total de gastos*</h5>
+            <h4 style={{background: "#4e5a5593", width: "60%", padding: "6px", margin: "auto", marginBottom: "10px", borderRadius: "5px"}}>Saldo na Renda: R${gastonaRenda}</h4>
             <h4>Limite Total: R${totalLimites} - Gasto Total: R${valuesTotal}</h4>
             <p>Educação: Gasto Total: R${valuesTotalEducacao} | Limite: R${valuesEducacao.limiteEducacao}</p>
             <p>Moradia: Gasto Total: R${valuesTotalMoradia} | Limite: R${valuesMoradia.limiteMoradia}</p>

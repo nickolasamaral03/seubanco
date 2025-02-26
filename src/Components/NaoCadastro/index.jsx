@@ -148,7 +148,6 @@ const Cadastro = (props) => {
 
     const navigate = useNavigate();
 
-
     const PegandoValoresCadastrados = async (evento) => {
         evento.preventDefault();
 

@@ -151,6 +151,7 @@ const MensagemAlerta = styled.p`
         padding: 4px;
     }
 `;
+
 const DefinirAlimentacao = ({ valuesAlimentacao, atualizarGastosTotaisAlimentacao }) => {
     const [gastosAlimentacao, setGastosAlimentacao] = useState("");
     const [gastosMotivo, setGastosMotivo] = useState("");

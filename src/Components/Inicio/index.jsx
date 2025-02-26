@@ -76,7 +76,7 @@ const InicioDentro = styled.div`
 
     button{
         width: 72px;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     img{
@@ -113,21 +113,55 @@ const Categoria = styled.div`
     }
 `
 
-const Inicio = () => {
+const Alerta = styled.div`
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 30%;
+
+    @media (max-width: 1024px) {
+        width: 50%; /* Maior em telas menores */
+    }
+
+    @media (max-width: 768px) {
+        width: 40%; /* Ainda maior para melhor visibilidade */
+        font-size: 1rem; /* Reduz fonte em telas menores */
+    }
+
+    @media (max-width: 480px) {
+        width: 90%; /* Quase tela toda em celulares */
+        font-size: 0.9rem;
+    }
+`;
+
+const Inicio = (props) => {
+    const [mensagemSucesso, setMensagemSucesso] = useState("")
     const [renda, setRenda] = useState("")
-    const [ rendaConfirmada, setRendaConfirmada] = useState(() => {
-        const rendaSalva = localStorage.getItem("rendaConfirmada")
-        return rendaSalva ? JSON.parse(rendaSalva) : []
-    })
+    const [ rendaConfirmada, setRendaConfirmada] = useState("")
+    
+    const PegandoRenda = (evento) => {
+        evento.preventDefault()
 
-    useEffect(() => {
-        localStorage.setItem("rendaConfirmada", JSON.stringify(rendaConfirmada))
-    }, [rendaConfirmada])
+        const rendaConvertida = Number(renda);
+         setRendaConfirmada(rendaConvertida)
+         console.log(rendaConvertida)
+        
+        setMensagemSucesso("Renda inserida com sucesso!")
+        
+        props.PegandoRendadoUsuario({
+           rendaConfirmada
+        })
+        
+        setTimeout(() => {
+            setMensagemSucesso("")
+        }, 3000)
 
-    const PegandoRenda = () => {
-        setRendaConfirmada(renda)
-         console.log(rendaConfirmada)
-         setRenda("")
+        setRenda("")
     }
 
     const [showToolTip, setShowToolTip] = useState(false)
@@ -135,10 +169,17 @@ const Inicio = () => {
     return (
         <TodoInicio>
             <InicioDentro>
+            {mensagemSucesso && (
+                    <Alerta className="alert alert-success" role="alert">
+                    {mensagemSucesso}
+                    </Alerta>
+                )}
+            <form onClick={PegandoRenda}>
             <h2>Qual é a sua renda média mensal?</h2>
             <p>(Caso tenha uma renda extra pode adicionar aqui também)</p>
             <input type="number" onChange={(e) => setRenda(e.target.value)} value={renda}/>
-            <button onClick={PegandoRenda}>Confirmar</button>
+            <button>Confirmar</button>
+            </form>
             <img src={info} alt="" onMouseEnter={() => setShowToolTip(true)} onMouseLeave={() => setShowToolTip(false)} />
             {showToolTip && (
                 <p style={{fontSize: "0.8rem", color: "white", background: "#65b75c7c", borderRadius: "5px"}}>"Se precisar atualizar algum valor, clique em definir gasto na categoria correspondente e atualize com o novo valor"</p>
@@ -164,3 +205,5 @@ const Inicio = () => {
 }
 
 export default Inicio
+
+// passar corretamente a renda mensal para gastos totais
