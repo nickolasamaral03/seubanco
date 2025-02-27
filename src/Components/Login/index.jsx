@@ -180,7 +180,7 @@ const Login = (props) => {
         evento.preventDefault()
 
         try{
-            const response = await axios.post('seubanco-production-07cf.up.railway.app/auth/login', {
+            const response = await axios.post('https://seubanco-production.up.railway.app/auth/login', {
                 usuario,
                 senha
             })
