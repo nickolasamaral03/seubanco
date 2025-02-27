@@ -152,7 +152,7 @@ const Cadastro = (props) => {
         evento.preventDefault();
 
         try{
-            const response = await axios.post('https://seubanco-production.up.railway.app/auth/register', {
+            const response = await axios.post('seubanco-production-07cf.up.railway.app/auth/register', {
                 nome, 
                 usuario,
                 senha
