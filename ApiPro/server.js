@@ -1,6 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-// const dontenv = require('dotenv')
 const cors = require('cors')
 const authRoute = require('./routes/auth.js')
 const path = require('path');
