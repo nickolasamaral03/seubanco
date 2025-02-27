@@ -1,8 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
 import Estilosglobais from './Components/EstilosGlobais/index.jsx'
-import Header from './Components/Header/Header.jsx'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Components/Login/index.jsx';
 import Inicio from './Components/Inicio/index.jsx';
 import Cadastro from './Components/NaoCadastro/index.jsx';

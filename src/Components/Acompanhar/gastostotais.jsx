@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Tooltip, ResponsiveContainer } from 'recharts';
 
 const TodoInicio = styled.div`
     position: fixed; 

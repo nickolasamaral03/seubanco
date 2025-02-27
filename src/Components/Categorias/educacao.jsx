@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 const TodaEducacao = styled.div`
