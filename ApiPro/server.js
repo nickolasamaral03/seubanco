@@ -20,13 +20,13 @@ app.get('*', (req, res) => {
 app.use(cors()) // Isso permite que aplicativos web clientes interajam com recursos de outros domínios
 app.use(express.json())
 
-const dbUser = process.env.DB_USER
-const dbPassword = process.env.DB_PASSWORD
+// const dbUser = process.env.DB_USER
+// const dbPassword = process.env.DB_PASSWORD
 
 const port = process.env.PORT || 5000;
 
 mongoose
-  .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.xhgh1sg.mongodb.net/meubanco?retryWrites=true&w=majority&appName=Cluster0`)
+  .connect(`mongodb+srv://nickolasamaral:IoLgJL3gQZv9xZ0d@cluster0.xhgh1sg.mongodb.net/meubanco?retryWrites=true&w=majority&appName=Cluster0`)
   .then(() => {
     app.listen(port, () => {
       console.log('Conectou com o banco de dados e o servidor está rodando na porta 5000');
