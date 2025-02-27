@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import info from "../Icons/information.png"
@@ -205,5 +205,3 @@ const Inicio = (props) => {
 }
 
 export default Inicio
-
-// passar corretamente a renda mensal para gastos totais
