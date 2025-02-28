@@ -105,7 +105,6 @@ const GastoTotal = ({valuesMoradia, valuesEducacao,valuesSaude, valuesLazer, val
 
     return(
         <TodoInicio>
-            {/* Se der ajustar mais a estilização */}
             <h3>Todos os gastos registrados:</h3>
             <h5>*Saldo na Renda é a sua renda menos o total de gastos*</h5>
             <h4 style={{background: "#4e5a5593", width: "60%", padding: "6px", margin: "auto", marginBottom: "10px", borderRadius: "5px"}}>Saldo na Renda: R${gastonaRenda}</h4>

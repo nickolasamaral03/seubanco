@@ -162,7 +162,7 @@ const DefinirAlimentacao = ({ valuesAlimentacao, atualizarGastosTotaisAlimentaca
 
     useEffect(() => {
         localStorage.setItem("registroAlimentacao", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 

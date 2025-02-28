@@ -202,11 +202,11 @@ const DefinirDividas = ({ valuesDividas, atualizarGastosTotaisDivida }) => {
 
     useEffect(() => {
         localStorage.setItem("registroParcelas", JSON.stringify(registroParcelas));
-    })
+    }, [registroParcelas]);
 
     useEffect(() => {
         localStorage.setItem("registroDividas", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 

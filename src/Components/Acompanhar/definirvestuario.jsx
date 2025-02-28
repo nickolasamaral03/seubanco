@@ -160,7 +160,7 @@ const DefinirVestuario = ({ valuesVestuario, atualizarGastosTotaisVestuario }) =
 
     useEffect(() => {
         localStorage.setItem("registroVestuario", JSON.stringify(registroVestuario));
-    });
+    }, [registroVestuario]);
 
     const [mensagemAlertaVestuario, setMensagemAlertaVestuario] = useState("");
 

@@ -167,7 +167,7 @@ const DefinirMoradia = ({ valuesMoradia, atualizarGastosTotaisMoradia }) => {
 
     useEffect(() => {
         localStorage.setItem("registro", JSON.stringify(registro))
-    })
+    }, [registro])
 
     const [mensagemAlerta, setMensagemAlerta] = useState("")
 

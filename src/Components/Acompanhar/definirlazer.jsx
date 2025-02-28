@@ -165,7 +165,7 @@ const DefinirLazer = ({ valuesLazer, atualizarGastosTotaisLazer }) => {
 
     useEffect(() => {
         localStorage.setItem("registroLazer", JSON.stringify(registro))
-    })
+    }, [registro])
 
     const [mensagemAlerta, setMensagemAlerta] = useState("")
 

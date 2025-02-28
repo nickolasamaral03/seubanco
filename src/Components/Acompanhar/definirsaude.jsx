@@ -161,7 +161,7 @@ const DefinirSaude = ({ valuesSaude, atualizarGastosTotais }) => {
 
     useEffect(() => {
         localStorage.setItem("registroSaude", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 

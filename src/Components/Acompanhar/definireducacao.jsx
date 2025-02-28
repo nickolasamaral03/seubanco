@@ -161,7 +161,7 @@ const DefinirEducacao = ({ valuesEducacao, atualizarGastosTotaisEducacao }) => {
 
     useEffect(() => {
         localStorage.setItem("registroEducacao", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 

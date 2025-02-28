@@ -192,7 +192,7 @@ const DefinirContas = ({ valuesContas, atualizarGastosTotaisContas }) => {
 
     useEffect(() => {
         localStorage.setItem("registroContas", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [contaPaga, setContaPaga] = useState(() => {
         const contaSalvo = localStorage.getItem("contaPaga");
@@ -201,7 +201,7 @@ const DefinirContas = ({ valuesContas, atualizarGastosTotaisContas }) => {
 
     useEffect(() => {
         localStorage.setItem("contaPaga", JSON.stringify(contaPaga));
-    })
+    }, [contaPaga]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 

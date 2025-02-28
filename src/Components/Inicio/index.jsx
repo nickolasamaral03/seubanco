@@ -179,8 +179,8 @@ const Inicio = (props) => {
             <p>(Caso tenha uma renda extra pode adicionar aqui também)</p>
             <input type="number" onChange={(e) => setRenda(e.target.value)} value={renda}/>
             <button>Confirmar</button>
-            </form>
             <img src={info} alt="" onMouseEnter={() => setShowToolTip(true)} onMouseLeave={() => setShowToolTip(false)} />
+            </form>
             {showToolTip && (
                 <p style={{fontSize: "0.8rem", color: "white", background: "#65b75c7c", borderRadius: "5px"}}>"Se precisar atualizar algum valor, clique em definir gasto na categoria correspondente e atualize com o novo valor"</p>
             )}

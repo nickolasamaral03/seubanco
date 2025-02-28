@@ -148,6 +148,8 @@ const Cadastro = (props) => {
 
     const navigate = useNavigate();
 
+    // http://localhost:5000/auth/register
+
     const PegandoValoresCadastrados = async (evento) => {
         evento.preventDefault();
 

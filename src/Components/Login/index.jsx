@@ -175,6 +175,8 @@ const Login = (props) => {
 
 
     const navigate = useNavigate();  
+
+    // http://localhost:5000/auth/login
  
     const PegandoLogin = async(evento) => {
         evento.preventDefault()

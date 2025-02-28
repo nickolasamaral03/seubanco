@@ -162,7 +162,7 @@ const DefinirTransportes = ({ valuesTransportes, atualizarGastosTotaisTransporte
 
     useEffect(() => {
         localStorage.setItem("registroTransportes", JSON.stringify(registro));
-    });
+    }, [registro]);
 
     const [mensagemAlerta, setMensagemAlerta] = useState("");
 
